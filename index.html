@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="es" data-lang="es">
+<html lang="es">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -10,7 +10,7 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%232330E8'/%3E%3Crect x='11' y='7' width='10' height='18' rx='2' fill='%23FFD23F'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,700;12..96,800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 :root{
   --cobalt:#2330E8;
@@ -18,142 +18,174 @@
   --ink:#0B0D1A;
   --paper:#F3F1FF;
   --sun:#FFD23F;
-  --display:'Bricolage Grotesque','Helvetica Neue',Arial,sans-serif;
-  --mono:'JetBrains Mono',ui-monospace,Menlo,Consolas,monospace;
+  --f:'Poppins',system-ui,sans-serif;
   --gutter:clamp(20px,4.5vw,72px);
 }
 *{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;scroll-padding-top:64px}
-body{background:var(--cobalt);color:var(--paper);font-family:var(--display);font-size:clamp(18px,1.25vw,21px);line-height:1.5;-webkit-font-smoothing:antialiased}
+html{scroll-padding-top:64px}
+body{background:var(--cobalt);color:var(--paper);font-family:var(--f);font-weight:300;font-size:clamp(16px,1.15vw,19px);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 a{color:inherit}
 :focus-visible{outline:3px solid var(--sun);outline-offset:3px;border-radius:2px}
-[data-lang="es"] .en,[data-lang="en"] .es{display:none!important}
 em{font-style:normal;color:var(--sun)}
-
-/* grid texture, same as the reel */
 .grid{background-image:linear-gradient(rgba(243,241,255,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(243,241,255,.07) 1px,transparent 1px);background-size:96px 96px}
 
-/* HUD / nav */
-.hud{position:fixed;inset:0 0 auto 0;z-index:50;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:12px var(--gutter);background:rgba(11,13,26,.94);color:var(--paper);font-family:var(--mono);font-size:14px;letter-spacing:.02em}
+/* header / HUD */
+.hud{position:fixed;inset:0 0 auto 0;z-index:60;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:12px var(--gutter);background:rgba(11,13,26,.94);color:var(--paper);font-weight:500;font-size:13px;letter-spacing:.03em}
 .hud a{text-decoration:none}
-.hud .brand{font-weight:600}
+.brand{font-weight:700;white-space:nowrap}
 .hud ul{display:flex;gap:clamp(12px,2vw,28px);list-style:none}
 .hud ul a:hover{color:var(--sun)}
-.hud .right{display:flex;align-items:center;gap:14px}
-#ver{font-variant-numeric:tabular-nums;color:var(--sun);font-weight:600;min-width:4ch}
-.lang{font:inherit;font-weight:600;color:var(--ink);background:var(--paper);border:0;border-radius:4px;padding:6px 12px;cursor:pointer}
-.lang:hover{background:var(--sun)}
-@media(max-width:860px){.hud ul{display:none}}
-.hud .brand,.lang{white-space:nowrap}
-@media(max-width:560px){.hud{font-size:12px;padding:10px 16px}.hud .right{gap:8px}.lang{padding:5px 8px}}
+.right{display:flex;align-items:center;gap:12px}
+#ver{font-variant-numeric:tabular-nums;color:var(--sun);font-weight:700;min-width:4ch}
+.langs{display:flex;gap:2px;background:rgba(243,241,255,.14);border-radius:6px;padding:2px}
+.langs button{font:600 12px var(--f);color:var(--paper);background:none;border:0;border-radius:4px;padding:5px 9px;cursor:pointer}
+.langs button[aria-pressed="true"]{background:var(--paper);color:var(--ink)}
+.langs button:hover:not([aria-pressed="true"]){color:var(--sun)}
+@media(max-width:900px){.hud ul{display:none}}
+@media(max-width:520px){.hud{padding:10px 14px;font-size:11px}.right{gap:8px}.langs button{padding:4px 7px}}
 
 /* shared type */
-h1,h2,h3{font-family:var(--display);font-weight:800;letter-spacing:-.04em;line-height:.98}
-h2{font-size:clamp(38px,6.4vw,112px);max-width:14ch;text-wrap:balance}
-.kicker{font-family:var(--mono);font-weight:400;font-size:clamp(14px,1.2vw,18px);color:var(--sun);margin-bottom:22px}
-.lead{max-width:34em;margin-top:30px;font-size:clamp(20px,1.7vw,26px);line-height:1.45}
-.wrap{padding:clamp(80px,12vw,168px) var(--gutter)}
+h1,h2,h3{font-family:var(--f);font-weight:800;letter-spacing:-.04em;line-height:1.02}
+h2{font-size:clamp(32px,5.4vw,96px);max-width:16ch;text-wrap:balance}
+.kicker{font-weight:500;font-size:clamp(12px,1.05vw,16px);letter-spacing:.04em;color:var(--sun);margin-bottom:20px}
+.lead{max-width:34em;margin-top:28px;font-size:clamp(17px,1.45vw,23px);font-weight:300;line-height:1.55}
+.wrap{padding:clamp(80px,12vw,168px) var(--gutter);position:relative}
 section{position:relative}
+.float{position:absolute;pointer-events:none;z-index:2}
+.note{background:var(--paper);color:var(--ink);font-weight:600;font-size:clamp(12px,1.2vw,18px);padding:16px 22px;border-radius:6px;white-space:nowrap;box-shadow:none}
+.note.s{background:var(--sun)}
+@media(max-width:700px){.float{display:none}}
 
-/* 01 hero */
-.hero{min-height:100svh;padding:clamp(96px,14vh,150px) var(--gutter) 40px;display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,.8fr);gap:var(--gutter);align-items:center}
-h1{font-size:clamp(46px,8.2vw,150px);text-wrap:balance}
-h1 .w{display:inline-block;overflow:hidden;vertical-align:top;padding-bottom:.08em;margin-right:.2em}
-h1 .w>span{display:inline-block;animation:rise .9s cubic-bezier(.16,1,.3,1) both;animation-delay:calc(var(--i)*70ms + 200ms)}
+/* ---------- REEL (pinned, scroll-scrubbed) ---------- */
+.reel{position:relative;height:100svh;min-height:560px;overflow:hidden;background:var(--cobalt)}
+.reel .gridbg{position:absolute;inset:-100px 0;background-size:96px 96px;background-image:linear-gradient(rgba(243,241,255,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(243,241,255,.07) 1px,transparent 1px)}
+.stack{position:absolute;left:var(--gutter);top:50%;transform:translateY(-46%);width:min(56vw,880px);display:grid}
+.step{grid-area:1/1;visibility:hidden}
+.s1{visibility:visible}
+.step .hl{font-size:clamp(34px,5.4vw,98px);line-height:1.02}
+.hl .w{display:inline-block;overflow:hidden;vertical-align:top;padding-bottom:.1em;margin-right:.2em}
+.hl .w>span{display:inline-block}
+.s1 .hl .w>span{animation:rise .9s cubic-bezier(.16,1,.3,1) both;animation-delay:calc(var(--i)*70ms + 150ms)}
 @keyframes rise{from{transform:translateY(110%)}to{transform:none}}
-.hero .lead{font-size:clamp(19px,1.5vw,24px)}
-.tagline{font-family:var(--mono);font-size:15px;margin-top:26px}
-.board{position:relative;aspect-ratio:4/5;border:3px dashed rgba(243,241,255,.45);max-height:70vh;justify-self:end;width:100%;max-width:440px}
-.board .lbl{position:absolute;left:0;top:-34px;font-family:var(--mono);font-size:15px;white-space:nowrap}
-.board .lbl b{font-weight:600}
-.idea{position:absolute;left:50%;top:50%;width:36px;height:70px;margin:-35px 0 0 -18px;background:var(--sun);border-radius:4px;animation:blink 1.1s steps(1) infinite}
+.extra .lead{font-size:clamp(15px,1.2vw,20px);margin-top:26px;max-width:30em}
+.tagline{font-weight:500;font-size:clamp(11px,.95vw,14px);margin-top:22px;letter-spacing:.02em}
+.board{position:absolute;right:var(--gutter);top:50%;width:min(36vw,500px,calc((100svh - 190px)*.8));aspect-ratio:4/5;transform:translateY(-46%);container-type:inline-size}
+.edge{position:absolute;inset:0;border:3px dashed rgba(243,241,255,.4)}
+.bgrid{position:absolute;inset:0;opacity:0;background-image:linear-gradient(90deg,rgba(255,210,63,.22) 1px,transparent 1px);background-size:10.15% 100%;background-position:6.25% 0}
+.lbl{position:absolute;left:0;top:-34px;font-weight:500;font-size:clamp(11px,3.2cqw,15px);white-space:nowrap}
+.lbl b{font-weight:700}
+.blk{position:absolute;box-sizing:border-box;background:var(--paper);color:var(--ink);border:3px solid transparent;border-radius:6px;display:flex;align-items:center;justify-content:center;overflow:hidden;visibility:hidden}
+.blk .t{font-weight:600;font-size:3.6cqw;white-space:nowrap}
+.deco{position:absolute;inset:0;opacity:0}
+#b0 .deco{display:flex;align-items:center;gap:3cqw;padding-left:4cqw}
+#b0 .deco i{width:3cqw;height:3cqw;border-radius:50%;background:var(--cobalt)}
+#b0 .deco i:first-child{background:var(--sun)}
+#b1 .deco{background:linear-gradient(135deg,var(--cobalt) 0 38%,transparent 38%),var(--paper)}
+#b1 .deco::after{content:"";position:absolute;right:7%;bottom:12%;width:18%;aspect-ratio:1;border-radius:50%;background:var(--sun)}
+.card .deco::before{content:"";position:absolute;left:12%;top:12%;width:28%;aspect-ratio:1;border-radius:50%;background:var(--cobalt)}
+.card .deco::after{content:"";position:absolute;left:12%;right:12%;bottom:14%;height:10%;border-radius:99px;background:rgba(35,48,232,.28)}
+#b5{border-radius:22px}
+#b5 .deco{background:rgba(35,48,232,.2)}
+#knob{position:absolute;top:12%;left:6%;width:38%;aspect-ratio:1;border-radius:50%;background:var(--cobalt);opacity:0}
+#idea{position:absolute;box-sizing:border-box;background:var(--sun);color:var(--ink);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:3.8cqw;border-radius:4px;overflow:hidden;white-space:nowrap;left:47.2%;top:45.6%;width:5.6%;height:8.75%}
+#idea.blink{animation:blink 1.1s steps(1) infinite}
 @keyframes blink{50%{opacity:.12}}
-@media(max-width:860px){.hero{grid-template-columns:1fr;min-height:auto;padding-top:110px}.board{max-width:none;aspect-ratio:16/9;margin-top:34px}}
+#ideaTxt{opacity:0}
+#cursor{position:absolute;left:0;top:0;width:44px;height:44px;opacity:0;z-index:5}
+#burst{position:absolute;left:0;top:0;width:0;height:0;z-index:5}
+#burst i{position:absolute;left:-5px;top:-5px;width:10px;height:10px;border-radius:50%;background:var(--sun);opacity:0}
+#flood{position:absolute;inset:0;background:var(--sun);opacity:0;z-index:6;clip-path:inset(0 0 0 0)}
+#end{position:absolute;inset:0;z-index:7;color:var(--ink);opacity:0;visibility:hidden;padding:clamp(96px,14vh,150px) var(--gutter) 40px;display:flex;flex-direction:column;justify-content:space-between}
+#end .kicker{color:var(--ink)}
+.name{font-weight:800;font-size:clamp(70px,16vw,300px);line-height:.88;letter-spacing:-.06em;max-width:none}
+.name .w{display:block;overflow:hidden;padding-bottom:.06em}
+.name .w>span{display:inline-block}
+.endrole{font-weight:600;font-size:clamp(20px,3.2vw,54px);letter-spacing:-.03em;margin-top:clamp(18px,2.5vw,36px)}
+.endfoot{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-weight:500;font-size:clamp(12px,1.1vw,16px)}
+.reel.static{height:auto;min-height:0;overflow:visible}
+.reel.static .stack{position:relative;left:auto;top:auto;transform:none;width:auto;padding:130px var(--gutter) 60px}
+.reel.static .step:not(.s1),.reel.static .board{display:none}
+.reel.static .s1 .hl .w>span{animation:none}
+.reel.static #end{position:relative;opacity:1;visibility:visible;min-height:90svh;background:var(--sun)}
+@media(max-width:860px){
+  .stack{width:auto;right:var(--gutter);top:90px;transform:none}
+  .step .hl{font-size:clamp(30px,8.4vw,60px)}
+  .extra .lead{font-size:15px;margin-top:16px}.tagline{display:none}
+  .board{right:auto;left:50%;top:auto;bottom:24px;width:min(58vw,calc((100svh - 330px)*.8));transform:translateX(-50%)}
+  .lbl{top:-28px}
+}
 
-/* 02 questions */
-.about-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:var(--gutter);align-items:start}
-.notes{position:relative;min-height:520px}
-.note{position:absolute;background:var(--paper);color:var(--ink);font-family:var(--mono);font-weight:600;font-size:clamp(14px,1.4vw,20px);padding:20px 26px;border-radius:6px;white-space:nowrap}
-.note:nth-child(1){left:0;top:20px;transform:rotate(-8deg)}
-.note:nth-child(2){right:0;top:0;transform:rotate(6deg)}
-.note:nth-child(3){right:4%;top:150px;transform:rotate(-4deg)}
-.note:nth-child(4){left:2%;top:270px;transform:rotate(7deg)}
-.note:nth-child(5){right:6%;top:330px;transform:rotate(-6deg)}
-.note:nth-child(6){left:14%;top:150px;transform:rotate(4deg);background:var(--sun)}
-.pillars{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:clamp(56px,8vw,112px);border-top:2px solid var(--paper)}
+/* ---------- ABOUT ---------- */
+.pillars{display:grid;grid-template-columns:repeat(4,1fr);margin-top:clamp(56px,8vw,112px);border-top:2px solid var(--paper)}
 .pillar{padding:22px 22px 0 0}
 .pillar+.pillar{padding-left:22px;border-left:1px solid rgba(243,241,255,.3)}
-.pillar h3{font-size:clamp(20px,1.7vw,26px);line-height:1.1;letter-spacing:-.02em;margin-bottom:10px}
-.pillar p{font-size:18px}
-@media(max-width:900px){.about-grid{grid-template-columns:1fr}.notes{min-height:430px}.pillars{grid-template-columns:1fr 1fr}.pillar:nth-child(3){padding-left:0;border-left:0}.pillar{padding-bottom:28px}}
-@media(max-width:560px){.pillars{grid-template-columns:1fr}.pillar,.pillar+.pillar{padding-left:0;border-left:0}.note{white-space:normal;max-width:60%;padding:14px 16px}}
+.pillar h3{font-size:clamp(17px,1.5vw,22px);font-weight:700;line-height:1.15;letter-spacing:-.02em;margin-bottom:10px}
+.pillar p{font-size:15px;font-weight:300}
+@media(max-width:900px){.pillars{grid-template-columns:1fr 1fr}.pillar:nth-child(3){padding-left:0;border-left:0}.pillar{padding-bottom:28px}}
+@media(max-width:560px){.pillars{grid-template-columns:1fr}.pillar,.pillar+.pillar{padding-left:0;border-left:0}}
 
-/* 03 process: stacked panels */
-.process-intro{padding-bottom:0}
+/* ---------- PROCESS: stacked panels ---------- */
+.process-intro{padding-bottom:clamp(40px,6vw,80px);overflow:hidden}
 .panel{position:sticky;top:0;min-height:100svh;display:flex;align-items:center;padding:96px var(--gutter) 56px;border-top:2px solid var(--ink)}
-.panel.p1{background:var(--ink);color:var(--paper)}
-.panel.p2{background:var(--paper);color:var(--ink)}
-.panel.p3{background:var(--cobalt-2);color:var(--paper)}
-.panel.p4{background:var(--sun);color:var(--ink)}
+.p1{background:var(--ink);color:var(--paper)}
+.p2{background:var(--paper);color:var(--ink)}
+.p3{background:var(--cobalt-2);color:var(--paper)}
+.p4{background:var(--sun);color:var(--ink)}
 .panel-grid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:clamp(28px,5vw,88px);width:100%;align-items:end}
-.step{font-family:var(--mono);font-size:15px;margin-bottom:14px}
-.p1 .step,.p3 .step{color:var(--sun)}
-.panel h3{font-size:clamp(56px,11vw,196px);line-height:.88;letter-spacing:-.05em}
-.what{font-size:clamp(20px,1.6vw,25px);max-width:30em}
+.step-l{font-weight:500;font-size:13px;letter-spacing:.04em;margin-bottom:14px}
+.p1 .step-l,.p3 .step-l{color:var(--sun)}
+.panel h3{font-size:clamp(44px,8.4vw,150px);line-height:.9;letter-spacing:-.06em}
+.what{font-size:clamp(17px,1.4vw,22px);max-width:30em;font-weight:400}
 .ai{margin-top:26px;padding-top:18px;border-top:2px solid currentColor}
-.ai b{font-family:var(--mono);font-weight:600;display:block;margin-bottom:8px;font-size:15px}
-.ai p{font-size:19px;max-width:32em}
-.proof{margin-top:18px;font-family:var(--mono);font-weight:600;font-size:clamp(15px,1.3vw,19px)}
-@media(max-width:860px){.panel{align-items:flex-start;padding-top:84px}.panel-grid{grid-template-columns:1fr;gap:20px}.panel h3{font-size:clamp(52px,17vw,104px)}}
+.ai b{font-weight:600;display:block;margin-bottom:8px;font-size:13px;letter-spacing:.03em}
+.ai p{font-size:16px;max-width:32em}
+.proof{margin-top:18px;font-weight:700;font-size:clamp(14px,1.2vw,18px)}
+@media(max-width:860px){.panel{align-items:flex-start;padding-top:84px}.panel-grid{grid-template-columns:1fr;gap:20px}.panel h3{font-size:clamp(40px,13vw,84px)}}
 @media(max-height:560px){.panel{position:relative}}
 
-/* 04 cases */
-.cases-sec{background:var(--ink)}
+/* ---------- CASES ---------- */
+.cases-sec{background:var(--ink);overflow:hidden}
 .cases{margin-top:clamp(40px,6vw,80px);border-top:2px solid var(--paper)}
 .case{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.3fr);gap:var(--gutter);padding:clamp(26px,3vw,46px) 0;border-bottom:1px solid rgba(243,241,255,.3)}
-.case h3{font-size:clamp(26px,3.2vw,52px);line-height:1;letter-spacing:-.035em}
+.case h3{font-size:clamp(22px,2.7vw,44px);line-height:1.05;letter-spacing:-.04em}
 .tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
-.tag{font-family:var(--mono);font-weight:600;font-size:13px;padding:4px 12px;border-radius:4px;background:var(--paper);color:var(--ink)}
+.tag{font-weight:600;font-size:12px;padding:4px 12px;border-radius:4px;background:var(--paper);color:var(--ink)}
 .tag.s{background:var(--sun)}
+.case p{font-weight:300}
 .case p+p{margin-top:16px}
-.res{font-family:var(--mono);font-weight:600;font-size:clamp(15px,1.3vw,18px);color:var(--sun)}
+.res{font-weight:600!important;font-size:clamp(13px,1.1vw,16px);color:var(--sun)}
 @media(max-width:760px){.case{grid-template-columns:1fr;gap:16px}}
 
-/* 05 impact */
-.impact{background:var(--paper);color:var(--ink)}
+/* ---------- IMPACT ---------- */
+.impact{background:var(--paper);color:var(--ink);overflow:hidden}
 .impact .kicker{color:var(--cobalt)}
+.impact em{color:var(--cobalt)}
 .facts{display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(28px,4vw,64px) var(--gutter);margin-top:clamp(40px,6vw,80px);max-width:1100px}
 .fact{border-top:2px solid var(--ink);padding-top:18px}
-.fact strong{font-weight:800;font-size:clamp(48px,7vw,120px);line-height:.95;letter-spacing:-.05em;display:block;margin-bottom:10px;color:var(--cobalt)}
-.fact p{max-width:26em;font-size:20px}
+.fact strong{font-weight:800;font-size:clamp(44px,6.4vw,112px);line-height:1;letter-spacing:-.06em;display:block;margin-bottom:10px;color:var(--cobalt)}
+.fact p{max-width:26em;font-size:17px;font-weight:400}
 @media(max-width:620px){.facts{grid-template-columns:1fr}}
 
-/* 06 experience */
+/* ---------- EXPERIENCE ---------- */
+.exp{overflow:hidden}
 .roles{margin-top:clamp(40px,6vw,80px);border-top:2px solid var(--paper)}
 .role{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.6fr);gap:var(--gutter);padding:24px 0;border-bottom:1px solid rgba(243,241,255,.3)}
-.role h3{font-size:clamp(20px,1.9vw,30px);line-height:1.05;letter-spacing:-.025em}
-.when{font-family:var(--mono);font-size:14px;margin-top:8px}
-.role p{max-width:38em}
+.role h3{font-size:clamp(17px,1.6vw,25px);line-height:1.1;letter-spacing:-.03em;font-weight:700}
+.when{font-weight:500;font-size:13px;margin-top:8px}
+.role p{max-width:38em;font-weight:300}
 @media(max-width:700px){.role{grid-template-columns:1fr;gap:8px}}
 .tools{margin-top:clamp(40px,6vw,72px);display:flex;flex-wrap:wrap;gap:8px}
-.tools span{font-family:var(--mono);font-weight:600;font-size:13px;border:1.5px solid var(--paper);border-radius:4px;padding:5px 12px}
+.tools span{font-weight:600;font-size:12px;border:1.5px solid var(--paper);border-radius:4px;padding:5px 12px}
 
-/* 07 contact: sun flood */
-.contact{background:var(--sun);color:var(--ink);min-height:100svh;display:flex;flex-direction:column;justify-content:space-between;padding:clamp(96px,12vw,150px) var(--gutter) 28px}
+/* ---------- CONTACT ---------- */
+.contact{background:var(--sun);color:var(--ink);overflow:hidden}
 .contact .kicker{color:var(--ink)}
-.name{font-weight:800;font-size:clamp(76px,19vw,360px);line-height:.84;letter-spacing:-.06em;max-width:none}
-.name span{display:block}
-.crole{font-weight:700;font-size:clamp(22px,3.6vw,60px);letter-spacing:-.025em;margin-top:clamp(22px,3vw,44px)}
-.cta{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-top:clamp(36px,5vw,64px);font-family:var(--mono);font-size:clamp(14px,1.3vw,19px)}
-.cta a{font-weight:600;text-decoration-thickness:2px;text-underline-offset:6px}
-.cta .mail{font-family:var(--display);font-weight:800;font-size:clamp(22px,3.4vw,52px);letter-spacing:-.035em;word-break:break-word;display:inline-block}
-.sub{margin-top:30px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-family:var(--mono);font-size:13px;border-top:2px solid var(--ink);padding-top:14px}
+.contact h2{max-width:14ch}
+.mail{display:inline-block;margin-top:clamp(28px,4vw,56px);font-weight:800;font-size:clamp(22px,4.2vw,72px);letter-spacing:-.05em;line-height:1.05;text-decoration-thickness:4px;text-underline-offset:10px;word-break:break-word}
+.links{display:flex;gap:28px;flex-wrap:wrap;margin-top:28px;font-weight:600;font-size:16px}
+footer{padding:22px var(--gutter);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-weight:500;font-size:12px;background:var(--ink);color:var(--paper)}
 
-@media(prefers-reduced-motion:reduce){
-  html{scroll-behavior:auto}
-  h1 .w>span{animation:none}
-  .idea{animation:none}
-}
+@media(prefers-reduced-motion:reduce){.s1 .hl .w>span{animation:none}#idea.blink{animation:none}}
 </style>
 </head>
 <body>
@@ -162,253 +194,484 @@ h1 .w>span{display:inline-block;animation:rise .9s cubic-bezier(.16,1,.3,1) both
   <a class="brand" href="#top">/* juan-david.portfolio */</a>
   <nav aria-label="Principal">
     <ul>
-      <li><a href="#preguntas"><span class="es">preguntas</span><span class="en">questions</span></a></li>
-      <li><a href="#proceso"><span class="es">proceso</span><span class="en">process</span></a></li>
-      <li><a href="#casos"><span class="es">casos</span><span class="en">use cases</span></a></li>
-      <li><a href="#impacto"><span class="es">impacto</span><span class="en">impact</span></a></li>
-      <li><a href="#experiencia"><span class="es">experiencia</span><span class="en">experience</span></a></li>
-      <li><a href="#contacto"><span class="es">contacto</span><span class="en">contact</span></a></li>
+      <li><a href="#sobre" data-k="nav_about"></a></li>
+      <li><a href="#proceso" data-k="nav_process"></a></li>
+      <li><a href="#casos" data-k="nav_cases"></a></li>
+      <li><a href="#impacto" data-k="nav_impact"></a></li>
+      <li><a href="#experiencia" data-k="nav_exp"></a></li>
+      <li><a href="#contacto" data-k="nav_contact"></a></li>
     </ul>
   </nav>
   <div class="right">
     <span id="ver" aria-hidden="true">v0.0</span>
-    <button class="lang" id="lang" type="button" aria-label="Cambiar idioma / Change language">ES / EN</button>
+    <div class="langs" role="group" aria-label="Idioma / Language / Idioma">
+      <button type="button" data-l="es" aria-pressed="true">ES</button>
+      <button type="button" data-l="en" aria-pressed="false">EN</button>
+      <button type="button" data-l="pt" aria-pressed="false">PT</button>
+    </div>
   </div>
 </header>
 
 <main id="top">
 
-<section class="hero grid" aria-labelledby="h1">
-  <div>
-    <p class="kicker"><span class="es">/* 01 — el comienzo */</span><span class="en">/* 01 — the beginning */</span></p>
-    <h1 id="h1">
-      <span class="es">Todo producto empieza como un <em>archivo en blanco.</em></span>
-      <span class="en">Every product starts as a <em>blank file.</em></span>
-    </h1>
-    <p class="lead">
-      <span class="es">Soy Juan David Gómez, diseñador de producto holístico en Bogotá. Voy del descubrimiento al producto funcionando, y en cada fase la IA me da velocidad.</span>
-      <span class="en">I'm Juan David Gómez, a holistic product designer in Bogotá. I go from discovery to a working product, and in every phase AI gives me speed.</span>
-    </p>
-    <p class="tagline">/* design engineer · ai prototyping specialist @ ab inbev */</p>
+<!-- REEL: scroll-scrubbed story -->
+<section class="reel" id="reel" aria-label="Story">
+  <div class="gridbg" id="gridbg"></div>
+
+  <div class="stack">
+    <div class="step s1">
+      <p class="kicker" data-k="k1"></p>
+      <h1 class="hl" id="h1" data-k="h1"></h1>
+      <div class="extra">
+        <p class="lead" data-k="intro"></p>
+        <p class="tagline">/* design engineer · ai prototyping specialist @ ab inbev */</p>
+      </div>
+    </div>
+    <div class="step s2"><p class="kicker" data-k="k2"></p><h2 class="hl" data-k="h2"></h2></div>
+    <div class="step s3"><p class="kicker" data-k="k3"></p><h2 class="hl" data-k="h3"></h2></div>
+    <div class="step s4"><p class="kicker" data-k="k4"></p><h2 class="hl" data-k="h4"></h2></div>
+    <div class="step s5"><p class="kicker" data-k="k5"></p><h2 class="hl" data-k="h5"></h2></div>
   </div>
-  <div class="board" aria-hidden="true">
-    <div class="lbl"><b>untitled</b> <span>· <span class="es">vacío</span><span class="en">empty</span></span></div>
-    <div class="idea"></div>
+
+  <div class="board" id="board" aria-hidden="true">
+    <div class="edge" id="edge"></div>
+    <div class="bgrid" id="bgrid"></div>
+    <div class="lbl"><b id="file">untitled</b> <span id="status"></span></div>
+    <div class="blk" id="b0"><div class="deco"><i></i><i></i><i></i></div><span class="t" data-k="q1"></span></div>
+    <div class="blk" id="b1"><div class="deco"></div><span class="t" data-k="q2"></span></div>
+    <div class="blk card" id="b2"><div class="deco"></div><span class="t" data-k="q3"></span></div>
+    <div class="blk card" id="b3"><div class="deco"></div><span class="t" data-k="q4"></span></div>
+    <div class="blk card" id="b4"><div class="deco"></div><span class="t" data-k="q5"></span></div>
+    <div class="blk" id="b5"><div class="deco"></div><div id="knob"></div><span class="t" data-k="q6"></span></div>
+    <div id="idea" class="blink"><span id="ideaTxt"></span></div>
+  </div>
+
+  <div id="burst"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+  <svg id="cursor" viewBox="0 0 64 64" aria-hidden="true"><path d="M8 4 L8 52 L21 40 L30 60 L39 56 L30 36 L48 36 Z" fill="#f3f1ff" stroke="#0b0d1a" stroke-width="4" stroke-linejoin="round"/></svg>
+  <div id="flood"></div>
+
+  <div id="end">
+    <div>
+      <p class="kicker" id="endk" data-k="endk"></p>
+      <h2 class="name" id="name"><span class="w"><span>Juan</span></span><span class="w"><span>David</span></span></h2>
+      <p class="endrole" id="endrole" data-k="endrole"></p>
+    </div>
+    <div class="endfoot" id="endfoot"><span data-k="endcta"></span><span data-k="scroll"></span></div>
   </div>
 </section>
 
-<section id="preguntas" class="grid" aria-labelledby="preg-h">
+<!-- ABOUT -->
+<section id="sobre" class="grid" aria-labelledby="sobre-h">
   <div class="wrap">
-    <p class="kicker"><span class="es">/* 02 — el desorden */</span><span class="en">/* 02 — the mess */</span></p>
-    <div class="about-grid">
-      <div>
-        <h2 id="preg-h"><span class="es">Luego llegan las <em>preguntas.</em></span><span class="en">Then come the <em>questions.</em></span></h2>
-        <p class="lead">
-          <span class="es">Alguien tiene que ordenarlas. Tengo más de 10 años en UX/UI y hoy lidero un equipo de 8 a 10 personas en AB InBev (Bavaria). Investigo, defino, diseño, construyo y lanzo, de punta a punta.</span>
-          <span class="en">Someone has to sort them out. I have 10+ years in UX/UI and today I lead a team of 8 to 10 at AB InBev (Bavaria). I research, define, design, build and ship, end to end.</span>
-        </p>
-      </div>
-      <div class="notes" aria-hidden="true">
-        <div class="note"><span class="es">¿para quién es?</span><span class="en">who is it for?</span></div>
-        <div class="note"><span class="es">¿por qué ahora?</span><span class="en">why now?</span></div>
-        <div class="note"><span class="es">¿qué se lanza primero?</span><span class="en">what ships first?</span></div>
-        <div class="note"><span class="es">¿casos límite?</span><span class="en">edge cases?</span></div>
-        <div class="note"><span class="es">¿escala?</span><span class="en">will it scale?</span></div>
-        <div class="note"><span class="es">¿MVP o MLP?</span><span class="en">MVP or MLP?</span></div>
-      </div>
-    </div>
-    <div class="pillars">
-      <div class="pillar"><h3><span class="es">Entiendo el negocio y al usuario</span><span class="en">I understand the business and the user</span></h3><p><span class="es">Investigo, defino el alcance y conecto cada decisión con un resultado medible.</span><span class="en">I research, scope the work and tie every decision to a measurable result.</span></p></div>
-      <div class="pillar"><h3><span class="es">Diseño sistemas, no pantallas sueltas</span><span class="en">I design systems, not loose screens</span></h3><p><span class="es">Componentes, tokens y reglas que el equipo reutiliza sin pedir permiso.</span><span class="en">Components, tokens and rules the team reuses without asking.</span></p></div>
-      <div class="pillar"><h3><span class="es">Construyo lo que diseño</span><span class="en">I build what I design</span></h3><p><span class="es">React, Tailwind y revisión de código. El diseño llega a producción como se pensó.</span><span class="en">React, Tailwind and code review. The design reaches production as intended.</span></p></div>
-      <div class="pillar"><h3><span class="es">Mido y mejoro</span><span class="en">I measure and improve</span></h3><p><span class="es">Analítica, pruebas y casos de prueba que cierran el ciclo.</span><span class="en">Analytics, testing and test cases that close the loop.</span></p></div>
+    <p class="kicker" data-k="about_k"></p>
+    <h2 id="sobre-h" data-k="about_h" data-speed=".5"></h2>
+    <p class="lead" data-k="about_p" data-speed=".25"></p>
+    <div class="float note" style="right:6%;top:18%" data-speed="1.6" aria-hidden="true"><span data-k="q2"></span></div>
+    <div class="float note s" style="right:16%;top:44%" data-speed="-1.1" aria-hidden="true"><span data-k="q6"></span></div>
+    <div class="float note" style="right:4%;top:62%" data-speed="2.1" aria-hidden="true"><span data-k="q4"></span></div>
+    <div class="pillars" data-speed=".2">
+      <div class="pillar"><h3 data-k="pi1_t"></h3><p data-k="pi1_p"></p></div>
+      <div class="pillar"><h3 data-k="pi2_t"></h3><p data-k="pi2_p"></p></div>
+      <div class="pillar"><h3 data-k="pi3_t"></h3><p data-k="pi3_p"></p></div>
+      <div class="pillar"><h3 data-k="pi4_t"></h3><p data-k="pi4_p"></p></div>
     </div>
   </div>
 </section>
 
+<!-- PROCESS -->
 <section id="proceso" aria-labelledby="proceso-h">
   <div class="wrap process-intro grid">
-    <p class="kicker"><span class="es">/* 03 — la estructura */</span><span class="en">/* 03 — the thinking */</span></p>
-    <h2 id="proceso-h"><span class="es">Alguien tiene que encontrar la <em>estructura.</em></span><span class="en">Someone has to find the <em>structure.</em></span></h2>
-    <p class="lead"><span class="es">Cuatro fases, cada una con IA. La IA no reemplaza el criterio de diseño: quita el trabajo repetitivo para que el tiempo se vaya a decidir mejor.</span><span class="en">Four phases, each with AI. AI doesn't replace design judgment: it removes repetitive work so time goes into deciding better.</span></p>
+    <p class="kicker" data-k="proc_k"></p>
+    <h2 id="proceso-h" data-k="proc_h" data-speed=".5"></h2>
+    <p class="lead" data-k="proc_p" data-speed=".25"></p>
+    <div class="float" style="right:var(--gutter);top:22%;width:min(30vw,360px);aspect-ratio:4/5;border:3px dashed rgba(243,241,255,.4)" data-speed="-1.4" aria-hidden="true"></div>
+    <div class="float" style="right:calc(var(--gutter) + 14vw);top:48%;width:36px;height:70px;background:var(--sun);border-radius:4px" data-speed="2.2" aria-hidden="true"></div>
   </div>
 
   <article class="panel p1" aria-labelledby="f1">
     <div class="panel-grid">
+      <div><p class="step-l" data-k="ph1_s"></p><h3 id="f1" data-k="ph1_n" data-speed=".5"></h3></div>
       <div>
-        <p class="step"><span class="es">/* fase 1 de 4 · v0.2 */</span><span class="en">/* phase 1 of 4 · v0.2 */</span></p>
-        <h3 id="f1"><span class="es">Descubrir</span><span class="en">Discover</span></h3>
-      </div>
-      <div>
-        <p class="what"><span class="es">Entrevistas, contexto de uso, analítica y viabilidad. Salgo con el problema claro y el alcance escrito.</span><span class="en">Interviews, usage context, analytics and feasibility. I leave with a clear problem and a written scope.</span></p>
-        <div class="ai"><b><span class="es">/* cómo la acelero con IA */</span><span class="en">/* how I speed it up with AI */</span></b><p><span class="es">Un agente crea y analiza historias de usuario en Azure DevOps, y otro genera business cases con riesgo, implementación y costos.</span><span class="en">One agent creates and reviews user stories in Azure DevOps; another generates business cases covering risk, implementation and cost.</span></p></div>
-        <p class="proof"><span class="es">800+ historias procesadas · ciclo de 15 a 3 días</span><span class="en">800+ stories processed · cycle from 15 to 3 days</span></p>
+        <p class="what" data-k="ph1_w"></p>
+        <div class="ai"><b data-k="ai_t"></b><p data-k="ph1_a"></p></div>
+        <p class="proof" data-k="ph1_r"></p>
       </div>
     </div>
   </article>
-
   <article class="panel p2" aria-labelledby="f2">
     <div class="panel-grid">
+      <div><p class="step-l" data-k="ph2_s"></p><h3 id="f2" data-k="ph2_n" data-speed=".5"></h3></div>
       <div>
-        <p class="step"><span class="es">/* fase 2 de 4 · v0.4 */</span><span class="en">/* phase 2 of 4 · v0.4 */</span></p>
-        <h3 id="f2"><span class="es">Diseñar</span><span class="en">Design</span></h3>
-      </div>
-      <div>
-        <p class="what"><span class="es">Flujos, prototipos y Design System. Valido con usuarios antes de escribir una línea de código.</span><span class="en">Flows, prototypes and the Design System. I validate with users before writing a line of code.</span></p>
-        <div class="ai"><b><span class="es">/* cómo la acelero con IA */</span><span class="en">/* how I speed it up with AI */</span></b><p><span class="es">Prototipo con IA sobre componentes reales del Design System, y Figma conectado por MCP para que el diseño sea legible para el código.</span><span class="en">I prototype with AI on real Design System components, and Figma is connected through MCP so the design is readable by code.</span></p></div>
-        <p class="proof"><span class="es">30+ prototipos · 100+ componentes de sistema de diseño</span><span class="en">30+ prototypes · 100+ design system components</span></p>
+        <p class="what" data-k="ph2_w"></p>
+        <div class="ai"><b data-k="ai_t"></b><p data-k="ph2_a"></p></div>
+        <p class="proof" data-k="ph2_r"></p>
       </div>
     </div>
   </article>
-
   <article class="panel p3" aria-labelledby="f3">
     <div class="panel-grid">
+      <div><p class="step-l" data-k="ph3_s"></p><h3 id="f3" data-k="ph3_n" data-speed=".5"></h3></div>
       <div>
-        <p class="step"><span class="es">/* fase 3 de 4 · v0.8 */</span><span class="en">/* phase 3 of 4 · v0.8 */</span></p>
-        <h3 id="f3"><span class="es">Construir</span><span class="en">Build</span></h3>
-      </div>
-      <div>
-        <p class="what"><span class="es">Del frame de Figma a componentes React con Tailwind, pruebas y Storybook, dentro de las reglas del equipo.</span><span class="en">From the Figma frame to React components with Tailwind, tests and Storybook, within the team's rules.</span></p>
-        <div class="ai"><b><span class="es">/* cómo la acelero con IA */</span><span class="en">/* how I speed it up with AI */</span></b><p><span class="es">GitHub Copilot genera el código desde Figma MCP. Un skill con 12 archivos de referencia mantiene lo generado alineado con el Design System.</span><span class="en">GitHub Copilot generates code from Figma MCP. A skill with 12 reference files keeps the output aligned with the Design System.</span></p></div>
-        <p class="proof"><span class="es">Ciclo de diseño y front: de 25 a 7 días</span><span class="en">Design and front-end cycle: from 25 to 7 days</span></p>
+        <p class="what" data-k="ph3_w"></p>
+        <div class="ai"><b data-k="ai_t"></b><p data-k="ph3_a"></p></div>
+        <p class="proof" data-k="ph3_r"></p>
       </div>
     </div>
   </article>
-
   <article class="panel p4" aria-labelledby="f4">
     <div class="panel-grid">
+      <div><p class="step-l" data-k="ph4_s"></p><h3 id="f4" data-k="ph4_n" data-speed=".5"></h3></div>
       <div>
-        <p class="step"><span class="es">/* fase 4 de 4 · v1.0 */</span><span class="en">/* phase 4 of 4 · v1.0 */</span></p>
-        <h3 id="f4"><span class="es">Lanzar</span><span class="en">Ship</span></h3>
-      </div>
-      <div>
-        <p class="what"><span class="es">Pull Request revisado, seguridad y calidad verificadas, y casos de prueba listos. El producto sale funcionando.</span><span class="en">Reviewed pull request, security and quality checked, test cases ready. The product ships working.</span></p>
-        <div class="ai"><b><span class="es">/* cómo la acelero con IA */</span><span class="en">/* how I speed it up with AI */</span></b><p><span class="es">Un agente QA genera casos de prueba al instante desde las historias de usuario, con escenarios multipaís. Sonar y Snyk revisan cada PR.</span><span class="en">A QA agent generates test cases instantly from the user stories, including multi-country scenarios. Sonar and Snyk review every PR.</span></p></div>
-        <p class="proof"><span class="es">Casos de prueba inmediatos · revisión automática en cada PR</span><span class="en">Instant test cases · automated review on every PR</span></p>
+        <p class="what" data-k="ph4_w"></p>
+        <div class="ai"><b data-k="ai_t"></b><p data-k="ph4_a"></p></div>
+        <p class="proof" data-k="ph4_r"></p>
       </div>
     </div>
   </article>
 </section>
 
+<!-- CASES -->
 <section id="casos" class="cases-sec" aria-labelledby="casos-h">
   <div class="wrap">
-    <p class="kicker"><span class="es">/* 04 — el oficio */</span><span class="en">/* 04 — the craft */</span></p>
-    <h2 id="casos-h"><span class="es">Dale forma de <em>sistema.</em></span><span class="en">Shape it into a <em>system.</em></span></h2>
-    <p class="lead"><span class="es">Tres proyectos, de punta a punta.</span><span class="en">Three projects, end to end.</span></p>
+    <p class="kicker" data-k="cases_k"></p>
+    <h2 id="casos-h" data-k="cases_h" data-speed=".5"></h2>
+    <div class="float" style="right:8%;top:14%;width:36px;height:70px;background:var(--sun);border-radius:4px" data-speed="2.4" aria-hidden="true"></div>
+    <div class="float note" style="right:14%;top:24%" data-speed="-1.4" aria-hidden="true"><span data-k="q5"></span></div>
     <div class="cases">
       <article class="case">
-        <div>
-          <h3>Design Engineer Process</h3>
-          <div class="tags"><span class="tag"><span class="es">Diseñar</span><span class="en">Design</span></span><span class="tag"><span class="es">Construir</span><span class="en">Build</span></span><span class="tag s"><span class="es">Lanzar</span><span class="en">Ship</span></span></div>
-        </div>
-        <div>
-          <p><span class="es">Un proceso de 9 pasos que conecta la investigación, Figma (MCP), GitHub Copilot, el Design System ABI, Azure Repos y la revisión con Pull Request, Sonar y Snyk. Lo diseñé, lo documenté y lo publiqué para que el equipo lo use.</span><span class="en">A 9-step process that connects research, Figma (MCP), GitHub Copilot, the ABI Design System, Azure Repos and review through Pull Request, Sonar and Snyk. I designed, documented and published it for the team to use.</span></p>
-          <p class="res"><span class="es">/* ciclo de diseño y front: de 25 a 7 días (−72%) */</span><span class="en">/* design and front-end cycle: from 25 to 7 days (−72%) */</span></p>
-        </div>
+        <div><h3>Design Engineer Process</h3>
+          <div class="tags"><span class="tag" data-k="t_design"></span><span class="tag" data-k="t_build"></span><span class="tag s" data-k="t_ship"></span></div></div>
+        <div><p data-k="c1_p"></p><p class="res" data-k="c1_r"></p></div>
       </article>
       <article class="case">
-        <div>
-          <h3><span class="es">Agentes de historias de usuario y business case</span><span class="en">User story and business case agents</span></h3>
-          <div class="tags"><span class="tag"><span class="es">Descubrir</span><span class="en">Discover</span></span></div>
-        </div>
-        <div>
-          <p><span class="es">Un agente de IA crea y analiza historias de usuario directamente en Azure DevOps. Otro genera business cases con métricas de riesgo, implementación y costos para evaluar la viabilidad de un proyecto.</span><span class="en">An AI agent creates and reviews user stories directly in Azure DevOps. Another generates business cases with risk, implementation and cost metrics to assess project viability.</span></p>
-          <p class="res"><span class="es">/* 800+ historias · 90+ usuarios · ciclo de 15 a 3 días · 200+ business cases */</span><span class="en">/* 800+ stories · 90+ users · cycle from 15 to 3 days · 200+ business cases */</span></p>
-        </div>
+        <div><h3 data-k="c2_t"></h3>
+          <div class="tags"><span class="tag" data-k="t_disc"></span></div></div>
+        <div><p data-k="c2_p"></p><p class="res" data-k="c2_r"></p></div>
       </article>
       <article class="case">
-        <div>
-          <h3><span class="es">Agente QA de casos de prueba</span><span class="en">QA test case agent</span></h3>
-          <div class="tags"><span class="tag s"><span class="es">Lanzar</span><span class="en">Ship</span></span></div>
-        </div>
-        <div>
-          <p><span class="es">Un agente en Copilot Studio y Power Automate, con Playwright, que genera casos de prueba a partir de las historias de usuario de Azure DevOps, incluidos escenarios multipaís.</span><span class="en">An agent built with Copilot Studio and Power Automate, plus Playwright, that generates test cases from Azure DevOps user stories, including multi-country scenarios.</span></p>
-          <p class="res"><span class="es">/* casos de prueba al instante, desde la misma historia que originó el trabajo */</span><span class="en">/* test cases on demand, straight from the story that started the work */</span></p>
-        </div>
+        <div><h3 data-k="c3_t"></h3>
+          <div class="tags"><span class="tag s" data-k="t_ship"></span></div></div>
+        <div><p data-k="c3_p"></p><p class="res" data-k="c3_r"></p></div>
       </article>
     </div>
   </div>
 </section>
 
+<!-- IMPACT -->
 <section id="impacto" class="impact" aria-labelledby="impacto-h">
   <div class="wrap">
-    <p class="kicker"><span class="es">/* 05 — el momento */</span><span class="en">/* 05 — the moment */</span></p>
-    <h2 id="impacto-h"><span class="es">Y se lanza la <em style="color:var(--cobalt)">versión uno.</em></span><span class="en">Then ship <em style="color:var(--cobalt)">version one.</em></span></h2>
-    <p class="lead"><span class="es">Resultados dentro de AB InBev.</span><span class="en">Results inside AB InBev.</span></p>
+    <p class="kicker" data-k="imp_k"></p>
+    <h2 id="impacto-h" data-k="imp_h" data-speed=".5"></h2>
     <div class="facts">
-      <div class="fact"><strong>−72%</strong><p><span class="es">en el ciclo de diseño y desarrollo front: de 25 a 7 días.</span><span class="en">in the design and front-end cycle: from 25 to 7 days.</span></p></div>
-      <div class="fact"><strong>800+</strong><p><span class="es">historias de usuario creadas y analizadas por el agente, con 80% menos tiempo de ciclo.</span><span class="en">user stories created and reviewed by the agent, with 80% less cycle time.</span></p></div>
-      <div class="fact"><strong>90+</strong><p><span class="es">personas usan los agentes de IA que construí.</span><span class="en">people use the AI agents I built.</span></p></div>
-      <div class="fact"><strong>200+</strong><p><span class="es">business cases generados por un agente para 30 usuarios.</span><span class="en">business cases generated by an agent for 30 users.</span></p></div>
+      <div class="fact" data-speed=".3"><strong data-speed=".9">−72%</strong><p data-k="f1"></p></div>
+      <div class="fact" data-speed=".8"><strong data-speed=".5">800+</strong><p data-k="f2"></p></div>
+      <div class="fact" data-speed=".2"><strong data-speed="1.1">90+</strong><p data-k="f3"></p></div>
+      <div class="fact" data-speed=".6"><strong data-speed=".7">200+</strong><p data-k="f4"></p></div>
     </div>
   </div>
 </section>
 
-<section id="experiencia" class="grid" aria-labelledby="exp-h">
+<!-- EXPERIENCE -->
+<section id="experiencia" class="exp grid" aria-labelledby="exp-h">
   <div class="wrap">
-    <p class="kicker"><span class="es">/* trayectoria */</span><span class="en">/* track record */</span></p>
-    <h2 id="exp-h"><span class="es">De UX a ingeniería de <em>diseño.</em></span><span class="en">From UX to design <em>engineering.</em></span></h2>
+    <p class="kicker" data-k="exp_k"></p>
+    <h2 id="exp-h" data-k="exp_h" data-speed=".5"></h2>
     <div class="roles">
-      <div class="role"><div><h3>AI Prototyping Specialist</h3><p class="when">AB InBev · <span class="es">ene. 2026 – actualidad</span><span class="en">Jan 2026 – present</span></p></div><p><span class="es">Lidero un equipo de 8 a 10 personas. Diseñé un proceso de 9 pasos de Figma a Pull Request y construí agentes de IA para historias de usuario, business cases y QA.</span><span class="en">I lead a team of 8 to 10. I designed a 9-step process from Figma to Pull Request and built AI agents for user stories, business cases and QA.</span></p></div>
-      <div class="role"><div><h3>UX Specialist &amp; Innovation Strategist</h3><p class="when">AB InBev · 2023 – 2025</p></div><p><span class="es">Lideré UX en equipos multifuncionales y aumenté 5% la conversión de plataformas de venta digitales. Incorporé más de 10 proyectos nuevos.</span><span class="en">I led UX in cross-functional teams and raised conversion on digital sales platforms by 5%. I onboarded 10+ new projects.</span></p></div>
-      <div class="role"><div><h3>UX Design Specialist</h3><p class="when">AB InBev · 2021 – 2022</p></div><p><span class="es">Más de 20 investigaciones con usuarios y consumidores. Mejoré más de 10 puntos de contacto físicos.</span><span class="en">20+ studies with users and consumers. I improved 10+ physical touchpoints.</span></p></div>
-      <div class="role"><div><h3>Senior UX Designer · UX Designer</h3><p class="when">2020 – 2021</p></div><p><span class="es">30+ prototipos funcionales y más de 100 componentes de sistema de diseño.</span><span class="en">30+ functional prototypes and 100+ design system components.</span></p></div>
+      <div class="role"><div><h3>AI Prototyping Specialist</h3><p class="when">AB InBev · <span data-k="r1_d"></span></p></div><p data-k="r1_p"></p></div>
+      <div class="role"><div><h3>UX Specialist &amp; Innovation Strategist</h3><p class="when">AB InBev · 2023 – 2025</p></div><p data-k="r2_p"></p></div>
+      <div class="role"><div><h3>UX Design Specialist</h3><p class="when">AB InBev · 2021 – 2022</p></div><p data-k="r3_p"></p></div>
+      <div class="role"><div><h3>Senior UX Designer · UX Designer</h3><p class="when">2020 – 2021</p></div><p data-k="r4_p"></p></div>
     </div>
-    <div class="tools" aria-label="Herramientas / Tools">
+    <div class="tools" data-speed=".6">
       <span>Figma + MCP</span><span>Design Systems</span><span>React</span><span>Tailwind CSS</span><span>Storybook</span><span>GitHub Copilot</span><span>Claude</span><span>Copilot Studio</span><span>Power Automate</span><span>n8n</span><span>Playwright</span><span>Azure DevOps</span>
     </div>
   </div>
 </section>
 
+<!-- CONTACT -->
 <section id="contacto" class="contact" aria-labelledby="c-h">
-  <div>
-    <p class="kicker"><span class="es">/* v1.0 lanzado. diseñado por */</span><span class="en">/* v1.0 shipped. designed by */</span></p>
-    <h2 id="c-h" class="name"><span>Juan</span><span>David</span></h2>
-    <p class="crole"><span class="es">Diseñador de producto holístico</span><span class="en">Holistic product designer</span></p>
-  </div>
-  <div>
-    <div class="cta">
-      <a class="mail" href="mailto:juandagomezm@gmail.com">juandagomezm@gmail.com</a>
+  <div class="wrap">
+    <p class="kicker" data-k="con_k"></p>
+    <h2 id="c-h" data-k="con_h" data-speed=".5"></h2>
+    <a class="mail" href="mailto:juandagomezm@gmail.com" data-speed=".8">juandagomezm@gmail.com</a>
+    <div class="links">
       <a href="https://www.linkedin.com/in/juan-gomez-94493b196/" rel="noopener">LinkedIn</a>
-    </div>
-    <div class="sub">
-      <span>/* <span class="es">del archivo en blanco a la versión uno</span><span class="en">from blank file to version one</span> */</span>
-      <span>© <span id="y">2026</span> Juan David Gómez Mendoza · Bogotá</span>
+      <span>Bogotá, Colombia</span>
     </div>
   </div>
 </section>
 </main>
 
+<footer>
+  <span>© <span id="y">2026</span> Juan David Gómez Mendoza</span>
+  <span data-k="foot_l"></span>
+</footer>
+
+<script src="gsap.min.js"></script>
+<script src="ScrollTrigger.min.js"></script>
 <script>
 (function(){
-  var root=document.documentElement;
-  try{var s=localStorage.getItem('lang');if(s)root.dataset.lang=root.lang=s;else if((navigator.language||'').slice(0,2)==='en')root.dataset.lang=root.lang='en';}catch(e){}
-  document.getElementById('lang').addEventListener('click',function(){
-    var n=root.dataset.lang==='es'?'en':'es';root.dataset.lang=root.lang=n;
-    try{localStorage.setItem('lang',n)}catch(e){}
-  });
+  /* ------------------------------------------------------------------ copy [es, en, pt] */
+  var K={
+  nav_about:['sobre mí','about','sobre mim'],nav_process:['proceso','process','processo'],nav_cases:['casos','use cases','casos de uso'],nav_impact:['impacto','impact','impacto'],nav_exp:['experiencia','experience','experiência'],nav_contact:['contacto','contact','contato'],
+  k1:['/* 01 — el comienzo */','/* 01 — the beginning */','/* 01 — o começo */'],
+  k2:['/* 02 — el desorden */','/* 02 — the mess */','/* 02 — a bagunça */'],
+  k3:['/* 03 — la estructura */','/* 03 — the thinking */','/* 03 — a estrutura */'],
+  k4:['/* 04 — el oficio */','/* 04 — the craft */','/* 04 — o ofício */'],
+  k5:['/* 05 — el momento */','/* 05 — the moment */','/* 05 — o momento */'],
+  h1:['Todo producto empieza como un <em>archivo en blanco.</em>','Every product starts as a <em>blank file.</em>','Todo produto começa como um <em>arquivo em branco.</em>'],
+  h2:['Luego llegan las <em>preguntas.</em>','Then come the <em>questions.</em>','Depois vêm as <em>perguntas.</em>'],
+  h3:['Alguien tiene que encontrar la <em>estructura.</em>','Someone has to find the <em>structure.</em>','Alguém precisa encontrar a <em>estrutura.</em>'],
+  h4:['Dale forma de <em>sistema.</em>','Shape it into a <em>system.</em>','Dê forma de <em>sistema.</em>'],
+  h5:['Y se lanza la <em>versión uno.</em>','Then ship <em>version one.</em>','E lance a <em>versão um.</em>'],
+  intro:['Soy Juan David Gómez, diseñador de producto holístico en Bogotá. Voy del descubrimiento al producto funcionando, y en cada fase la IA me da velocidad.','I\'m Juan David Gómez, a holistic product designer in Bogotá. I go from discovery to a working product, and in every phase AI gives me speed.','Sou Juan David Gómez, designer de produto holístico em Bogotá. Vou da descoberta ao produto funcionando e, em cada fase, a IA me dá velocidade.'],
+  q1:['¿para quién es?','who is it for?','para quem é?'],q2:['¿por qué ahora?','why now?','por que agora?'],q3:['¿qué se lanza primero?','what ships first?','o que sai primeiro?'],q4:['¿casos límite?','edge cases?','casos extremos?'],q5:['¿escala?','will it scale?','escala?'],q6:['¿MVP o MLP?','MVP or MLP?','MVP ou MLP?'],
+  idea:['idea','idea','ideia'],ship:['Lanzar v1.0 →','Ship v1.0 →','Lançar v1.0 →'],
+  st0:['· vacío','· empty','· vazio'],st1:['· 6 preguntas abiertas','· 6 open questions','· 6 perguntas abertas'],st2:['· wireframe','· wireframe','· wireframe'],st3:['· 6 componentes','· 6 components','· 6 componentes'],st4:['· en vivo','· live','· no ar'],
+  endk:['/* v1.0 lanzado. diseñado por */','/* v1.0 shipped. designed by */','/* v1.0 lançado. desenhado por */'],
+  endrole:['Diseñador de producto holístico','Holistic product designer','Designer de produto holístico'],
+  endcta:['/* del archivo en blanco a la versión uno */','/* from blank file to version one */','/* do arquivo em branco à versão um */'],
+  scroll:['sigue bajando ↓','keep scrolling ↓','continue rolando ↓'],
+  about_k:['/* sobre mí */','/* about */','/* sobre mim */'],
+  about_h:['Un solo diseñador para todo el <em>recorrido.</em>','One designer for the whole <em>journey.</em>','Um só designer para toda a <em>jornada.</em>'],
+  about_p:['Tengo más de 10 años en UX/UI. Hoy lidero un equipo de 8 a 10 personas en AB InBev (Bavaria) y diseño la forma en que trabajamos: de la investigación a Figma, y de Figma a código revisado y publicado.','I have 10+ years in UX/UI. Today I lead a team of 8 to 10 at AB InBev (Bavaria) and design the way we work: from research to Figma, and from Figma to reviewed, shipped code.','Tenho mais de 10 anos em UX/UI. Hoje lidero uma equipe de 8 a 10 pessoas na AB InBev (Bavaria) e desenho a forma como trabalhamos: da pesquisa ao Figma, e do Figma ao código revisado e publicado.'],
+  pi1_t:['Entiendo el negocio y al usuario','I understand the business and the user','Entendo o negócio e o usuário'],pi1_p:['Investigo, defino el alcance y conecto cada decisión con un resultado medible.','I research, scope the work and tie every decision to a measurable result.','Pesquiso, defino o escopo e conecto cada decisão a um resultado mensurável.'],
+  pi2_t:['Diseño sistemas, no pantallas sueltas','I design systems, not loose screens','Desenho sistemas, não telas soltas'],pi2_p:['Componentes, tokens y reglas que el equipo reutiliza sin pedir permiso.','Components, tokens and rules the team reuses without asking.','Componentes, tokens e regras que a equipe reutiliza sem pedir licença.'],
+  pi3_t:['Construyo lo que diseño','I build what I design','Construo o que desenho'],pi3_p:['React, Tailwind y revisión de código. El diseño llega a producción como se pensó.','React, Tailwind and code review. The design reaches production as intended.','React, Tailwind e revisão de código. O design chega à produção como foi pensado.'],
+  pi4_t:['Mido y mejoro','I measure and improve','Meço e melhoro'],pi4_p:['Analítica, pruebas y casos de prueba que cierran el ciclo.','Analytics, testing and test cases that close the loop.','Analítica, testes e casos de teste que fecham o ciclo.'],
+  proc_k:['/* proceso */','/* process */','/* processo */'],
+  proc_h:['Cuatro fases, cada una con <em>IA.</em>','Four phases, each with <em>AI.</em>','Quatro fases, cada uma com <em>IA.</em>'],
+  proc_p:['La IA no reemplaza el criterio de diseño: quita el trabajo repetitivo para que el tiempo se vaya a decidir mejor.','AI doesn\'t replace design judgment: it removes repetitive work so time goes into deciding better.','A IA não substitui o critério de design: ela tira o trabalho repetitivo para que o tempo vá para decidir melhor.'],
+  ai_t:['/* cómo la acelero con IA */','/* how I speed it up with AI */','/* como acelero com IA */'],
+  ph1_s:['/* fase 1 de 4 · v0.2 */','/* phase 1 of 4 · v0.2 */','/* fase 1 de 4 · v0.2 */'],ph1_n:['Descubrir','Discover','Descobrir'],
+  ph1_w:['Entrevistas, contexto de uso, analítica y viabilidad. Salgo con el problema claro y el alcance escrito.','Interviews, usage context, analytics and feasibility. I leave with a clear problem and a written scope.','Entrevistas, contexto de uso, analítica e viabilidade. Saio com o problema claro e o escopo escrito.'],
+  ph1_a:['Un agente crea y analiza historias de usuario en Azure DevOps, y otro genera business cases con riesgo, implementación y costos.','One agent creates and reviews user stories in Azure DevOps; another generates business cases covering risk, implementation and cost.','Um agente cria e analisa histórias de usuário no Azure DevOps, e outro gera business cases com risco, implementação e custos.'],
+  ph1_r:['800+ historias procesadas · ciclo de 15 a 3 días','800+ stories processed · cycle from 15 to 3 days','800+ histórias processadas · ciclo de 15 para 3 dias'],
+  ph2_s:['/* fase 2 de 4 · v0.4 */','/* phase 2 of 4 · v0.4 */','/* fase 2 de 4 · v0.4 */'],ph2_n:['Diseñar','Design','Desenhar'],
+  ph2_w:['Flujos, prototipos y Design System. Valido con usuarios antes de escribir una línea de código.','Flows, prototypes and the Design System. I validate with users before writing a line of code.','Fluxos, protótipos e Design System. Valido com usuários antes de escrever uma linha de código.'],
+  ph2_a:['Prototipo con IA sobre componentes reales del Design System, y Figma conectado por MCP para que el diseño sea legible para el código.','I prototype with AI on real Design System components, and Figma is connected through MCP so the design is readable by code.','Prototipo com IA sobre componentes reais do Design System, e o Figma conectado por MCP para o design ser legível pelo código.'],
+  ph2_r:['30+ prototipos · 100+ componentes de sistema de diseño','30+ prototypes · 100+ design system components','30+ protótipos · 100+ componentes de design system'],
+  ph3_s:['/* fase 3 de 4 · v0.8 */','/* phase 3 of 4 · v0.8 */','/* fase 3 de 4 · v0.8 */'],ph3_n:['Construir','Build','Construir'],
+  ph3_w:['Del frame de Figma a componentes React con Tailwind, pruebas y Storybook, dentro de las reglas del equipo.','From the Figma frame to React components with Tailwind, tests and Storybook, within the team\'s rules.','Do frame do Figma a componentes React com Tailwind, testes e Storybook, dentro das regras da equipe.'],
+  ph3_a:['GitHub Copilot genera el código desde Figma MCP. Un skill con 12 archivos de referencia mantiene lo generado alineado con el Design System.','GitHub Copilot generates code from Figma MCP. A skill with 12 reference files keeps the output aligned with the Design System.','O GitHub Copilot gera o código a partir do Figma MCP. Um skill com 12 arquivos de referência mantém o gerado alinhado ao Design System.'],
+  ph3_r:['Ciclo de diseño y front: de 25 a 7 días','Design and front-end cycle: from 25 to 7 days','Ciclo de design e front: de 25 para 7 dias'],
+  ph4_s:['/* fase 4 de 4 · v1.0 */','/* phase 4 of 4 · v1.0 */','/* fase 4 de 4 · v1.0 */'],ph4_n:['Lanzar','Ship','Lançar'],
+  ph4_w:['Pull Request revisado, seguridad y calidad verificadas, y casos de prueba listos. El producto sale funcionando.','Reviewed pull request, security and quality checked, test cases ready. The product ships working.','Pull Request revisado, segurança e qualidade verificadas e casos de teste prontos. O produto sai funcionando.'],
+  ph4_a:['Un agente QA genera casos de prueba al instante desde las historias de usuario, con escenarios multipaís. Sonar y Snyk revisan cada PR.','A QA agent generates test cases instantly from the user stories, including multi-country scenarios. Sonar and Snyk review every PR.','Um agente de QA gera casos de teste na hora a partir das histórias de usuário, com cenários multipaís. Sonar e Snyk revisam cada PR.'],
+  ph4_r:['Casos de prueba inmediatos · revisión automática en cada PR','Instant test cases · automated review on every PR','Casos de teste imediatos · revisão automática em cada PR'],
+  cases_k:['/* casos de uso */','/* use cases */','/* casos de uso */'],
+  cases_h:['Tres proyectos de punta a <em>punta.</em>','Three projects, end to <em>end.</em>','Três projetos de ponta a <em>ponta.</em>'],
+  t_design:['Diseñar','Design','Desenhar'],t_build:['Construir','Build','Construir'],t_ship:['Lanzar','Ship','Lançar'],t_disc:['Descubrir','Discover','Descobrir'],
+  c1_p:['Un proceso de 9 pasos que conecta la investigación, Figma (MCP), GitHub Copilot, el Design System ABI, Azure Repos y la revisión con Pull Request, Sonar y Snyk. Lo diseñé, lo documenté y lo publiqué para que el equipo lo use.','A 9-step process that connects research, Figma (MCP), GitHub Copilot, the ABI Design System, Azure Repos and review through Pull Request, Sonar and Snyk. I designed, documented and published it for the team to use.','Um processo de 9 passos que conecta a pesquisa, o Figma (MCP), o GitHub Copilot, o Design System ABI, o Azure Repos e a revisão com Pull Request, Sonar e Snyk. Eu o desenhei, documentei e publiquei para a equipe usar.'],
+  c1_r:['/* ciclo de diseño y front: de 25 a 7 días (−72%) */','/* design and front-end cycle: from 25 to 7 days (−72%) */','/* ciclo de design e front: de 25 para 7 dias (−72%) */'],
+  c2_t:['Agentes de historias de usuario y business case','User story and business case agents','Agentes de histórias de usuário e business case'],
+  c2_p:['Un agente de IA crea y analiza historias de usuario directamente en Azure DevOps. Otro genera business cases con métricas de riesgo, implementación y costos para evaluar la viabilidad de un proyecto.','An AI agent creates and reviews user stories directly in Azure DevOps. Another generates business cases with risk, implementation and cost metrics to assess project viability.','Um agente de IA cria e analisa histórias de usuário diretamente no Azure DevOps. Outro gera business cases com métricas de risco, implementação e custos para avaliar a viabilidade de um projeto.'],
+  c2_r:['/* 800+ historias · 90+ usuarios · ciclo de 15 a 3 días · 200+ business cases */','/* 800+ stories · 90+ users · cycle from 15 to 3 days · 200+ business cases */','/* 800+ histórias · 90+ usuários · ciclo de 15 para 3 dias · 200+ business cases */'],
+  c3_t:['Agente QA de casos de prueba','QA test case agent','Agente de QA de casos de teste'],
+  c3_p:['Un agente en Copilot Studio y Power Automate, con Playwright, que genera casos de prueba a partir de las historias de usuario de Azure DevOps, incluidos escenarios multipaís.','An agent built with Copilot Studio and Power Automate, plus Playwright, that generates test cases from Azure DevOps user stories, including multi-country scenarios.','Um agente no Copilot Studio e Power Automate, com Playwright, que gera casos de teste a partir das histórias de usuário do Azure DevOps, incluindo cenários multipaís.'],
+  c3_r:['/* casos de prueba al instante, desde la misma historia que originó el trabajo */','/* test cases on demand, straight from the story that started the work */','/* casos de teste na hora, a partir da mesma história que originou o trabalho */'],
+  imp_k:['/* impacto */','/* impact */','/* impacto */'],
+  imp_h:['Resultados dentro de <em>AB InBev.</em>','Results inside <em>AB InBev.</em>','Resultados dentro da <em>AB InBev.</em>'],
+  f1:['en el ciclo de diseño y desarrollo front: de 25 a 7 días.','in the design and front-end cycle: from 25 to 7 days.','no ciclo de design e desenvolvimento front: de 25 para 7 dias.'],
+  f2:['historias de usuario creadas y analizadas por el agente, con 80% menos tiempo de ciclo.','user stories created and reviewed by the agent, with 80% less cycle time.','histórias de usuário criadas e analisadas pelo agente, com 80% menos tempo de ciclo.'],
+  f3:['personas usan los agentes de IA que construí.','people use the AI agents I built.','pessoas usam os agentes de IA que construí.'],
+  f4:['business cases generados por un agente para 30 usuarios.','business cases generated by an agent for 30 users.','business cases gerados por um agente para 30 usuários.'],
+  exp_k:['/* trayectoria */','/* track record */','/* trajetória */'],
+  exp_h:['De UX a ingeniería de <em>diseño.</em>','From UX to design <em>engineering.</em>','De UX a engenharia de <em>design.</em>'],
+  r1_d:['ene. 2026 – actualidad','Jan 2026 – present','jan. 2026 – atual'],
+  r1_p:['Lidero un equipo de 8 a 10 personas. Diseñé un proceso de 9 pasos de Figma a Pull Request y construí agentes de IA para historias de usuario, business cases y QA.','I lead a team of 8 to 10. I designed a 9-step process from Figma to Pull Request and built AI agents for user stories, business cases and QA.','Lidero uma equipe de 8 a 10 pessoas. Desenhei um processo de 9 passos do Figma ao Pull Request e construí agentes de IA para histórias de usuário, business cases e QA.'],
+  r2_p:['Lideré UX en equipos multifuncionales y aumenté 5% la conversión de plataformas de venta digitales. Incorporé más de 10 proyectos nuevos.','I led UX in cross-functional teams and raised conversion on digital sales platforms by 5%. I onboarded 10+ new projects.','Liderei UX em equipes multifuncionais e aumentei em 5% a conversão de plataformas de venda digitais. Incorporei mais de 10 projetos novos.'],
+  r3_p:['Más de 20 investigaciones con usuarios y consumidores. Mejoré más de 10 puntos de contacto físicos.','20+ studies with users and consumers. I improved 10+ physical touchpoints.','Mais de 20 pesquisas com usuários e consumidores. Melhorei mais de 10 pontos de contato físicos.'],
+  r4_p:['30+ prototipos funcionales y más de 100 componentes de sistema de diseño.','30+ functional prototypes and 100+ design system components.','30+ protótipos funcionais e mais de 100 componentes de design system.'],
+  con_k:['/* contacto */','/* contact */','/* contato */'],
+  con_h:['Hablemos de tu <em>producto.</em>','Let\'s talk about your <em>product.</em>','Vamos falar do seu <em>produto.</em>'],
+  foot_l:['Español · English · Português B1','Spanish · English · Portuguese B1','Espanhol · Inglês · Português B1'],
+  title:['Juan David Gómez · Diseñador de producto holístico','Juan David Gómez · Holistic product designer','Juan David Gómez · Designer de produto holístico']
+  };
+  var LANGS=['es','en','pt'],L=0;
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var $=function(s){return document.querySelector(s)};
+  var ctx=null;
+
+  try{var sv=localStorage.getItem('lang');if(sv&&LANGS.indexOf(sv)>-1)L=LANGS.indexOf(sv);else{var nl=(navigator.language||'es').slice(0,2);L=nl==='en'?1:nl==='pt'?2:0;}}catch(e){}
+
+  function bind(){
+    document.documentElement.lang=LANGS[L];
+    document.title=K.title[L];
+    document.querySelectorAll('[data-k]').forEach(function(e){var v=K[e.dataset.k];if(v)e.innerHTML=v[L];});
+    document.querySelectorAll('.langs button').forEach(function(b){b.setAttribute('aria-pressed',b.dataset.l===LANGS[L]);});
+    // split reel headlines into masked words
+    document.querySelectorAll('.reel .hl').forEach(function(h){
+      var i=0,out=[];
+      h.childNodes.forEach(function(n){
+        var em=n.nodeName==='EM';
+        n.textContent.trim().split(/\s+/).filter(Boolean).forEach(function(w){
+          out.push('<span class="w"><span style="--i:'+(i++)+'">'+(em?'<em>'+w+'</em>':w)+'</span></span>');
+        });
+      });
+      h.innerHTML=out.join('');
+    });
+  }
+
+  /* ------------------------------------------------------------------ scenes */
+  function buildReel(){
+    var NOTE={b0:[-120,60,320,96,-8],b1:[380,-10,250,96,6],b2:[400,240,350,96,-4],b3:[-140,520,290,96,7],b4:[330,610,300,96,-6],b5:[-40,300,280,96,4]};
+    var WIRE={b0:[40,40,560,70,0],b1:[40,140,560,250,0],b2:[40,420,170,170,0],b3:[235,420,170,170,0],b4:[430,420,170,170,0],b5:[40,620,92,44,0]};
+    var ids=Object.keys(NOTE);
+    var pc=function(a){return {left:(a[0]/6.4)+'%',top:(a[1]/8)+'%',width:(a[2]/6.4)+'%',height:(a[3]/8)+'%',rotation:a[4]};};
+    var E='expo.out',P='power4.inOut';
+    var reel=$('#reel');
+    var tl=gsap.timeline({defaults:{},onUpdate:state});
+
+    function ptBtn(){ // centre of the final "ship" button, in reel coordinates
+      var r=reel.getBoundingClientRect(),b=$('#board').getBoundingClientRect();
+      return {x:b.left-r.left+b.width*.5,y:b.top-r.top+b.height*(730/800),w:b.width*.875,h:b.height*.1};
+    }
+    var hin=function(s,at){tl.set(s,{autoAlpha:1},at).fromTo(s+' .w>span',{yPercent:110,y:0},{yPercent:0,y:0,duration:.9,ease:E,stagger:.07},at).fromTo(s+' .kicker',{autoAlpha:0,x:-20},{autoAlpha:1,x:0,duration:.6,ease:E},at);};
+    var hout=function(s,at){tl.fromTo(s+' .w>span',{yPercent:0,y:0},{yPercent:-110,y:0,duration:.55,ease:'power2.in',stagger:.035,immediateRender:false},at).to(s+' .kicker',{autoAlpha:0,duration:.4},at).set(s,{autoAlpha:0},at+.9);};
+
+    // initial states
+    tl.set('.s1',{autoAlpha:1},0).set('.s2,.s3,.s4,.s5',{autoAlpha:0},0)
+      .set('.s2 .w>span,.s3 .w>span,.s4 .w>span,.s5 .w>span',{yPercent:110,y:0},0)
+      .set('#edge',{autoAlpha:1},0).set('#bgrid',{opacity:0},0)
+      .set('.blk',{autoAlpha:0,scale:1,y:0,background:'#f3f1ff',borderColor:'rgba(243,241,255,0)',borderStyle:'solid',borderRadius:6},0)
+      .set('#b5',{borderRadius:22},0).set('.blk .t',{autoAlpha:1},0).set('.deco',{opacity:0},0).set('#knob',{opacity:0,left:'6%'},0)
+      .set('#idea',{left:'47.2%',top:'45.6%',width:'5.6%',height:'8.75%',borderRadius:4,scale:1,rotation:0},0)
+      .set('#ideaTxt',{opacity:0},0).set('#flood',{opacity:0},0).set('#end',{autoAlpha:0},0).set('#end .name .w>span',{yPercent:110,y:0},0)
+      .set('#endk,#endrole,#endfoot',{autoAlpha:0},0).set('#cursor',{opacity:0},0);
+    ids.forEach(function(id){tl.set('#'+id,pc(NOTE[id]),0);});
+
+    // 1 · blank 0.0–3.0 (headline already visible from page load)
+    tl.to('.s1 .extra',{autoAlpha:0,duration:.4},2.2);
+    hout('.s1',2.6);
+
+    // 2 · questions 3.0–6.4
+    tl.to('#idea',{left:'39.06%',top:'41.25%',width:'21.9%',height:'17.5%',duration:.8,ease:'back.out(1.4)'},2.9)
+      .to('#ideaTxt',{opacity:1,duration:.4},3.4);
+    hin('.s2',3.2);
+    ids.forEach(function(id,i){
+      var a=NOTE[id];
+      tl.fromTo('#'+id,{autoAlpha:0,scale:.4,rotation:a[4]*3},{autoAlpha:1,scale:1,rotation:a[4],duration:.7,ease:'back.out(1.6)'},3.5+i*.18)
+        .to('#'+id,{y:'+=12',rotation:a[4]+(i%2?2:-2),duration:.5,repeat:3,yoyo:true,ease:'sine.inOut'},4.4+i*.06);
+    });
+    tl.to('#idea',{rotation:5,duration:.2,repeat:5,yoyo:true,ease:'sine.inOut'},4.9);
+    hout('.s2',6.0);
+
+    // 3 · structure 6.4–9.8
+    tl.to('#bgrid',{opacity:1,duration:.8,ease:'sine.inOut'},6.3)
+      .to('.blk .t',{autoAlpha:0,duration:.35},6.4)
+      .to('.blk',{background:'rgba(243,241,255,0)',borderColor:'rgba(243,241,255,.85)',borderStyle:'dashed',duration:.5},6.5);
+    hin('.s3',6.6);
+    ids.forEach(function(id,i){tl.to('#'+id,Object.assign(pc(WIRE[id]),{y:0,duration:1.0,ease:P}),6.6+i*.08);});
+    tl.to('#idea',{rotation:0,left:'6.25%',top:'86.25%',width:'87.5%',height:'10%',duration:1.0,ease:P},6.8)
+      .to('#ideaTxt',{opacity:0,duration:.3},6.6);
+    hout('.s3',9.4);
+
+    // 4 · system 9.8–13.2
+    tl.to('#bgrid',{opacity:0,duration:.6,ease:'sine.inOut'},9.7);
+    hin('.s4',10.0);
+    tl.to('.blk',{background:'#f3f1ff',borderColor:'rgba(243,241,255,0)',borderStyle:'solid',duration:.5,stagger:.14},10.0)
+      .to('.blk:not(#b5)',{borderRadius:18,duration:.5,stagger:.14},10.0)
+      .to('.deco',{opacity:1,duration:.45,stagger:.14},10.2)
+      .fromTo('.card',{scale:.92},{scale:1,duration:.6,ease:'back.out(2)',stagger:.12},10.4)
+      .to('#idea',{borderRadius:40,duration:.6,ease:'power2.inOut'},10.6)
+      .to('#ideaTxt',{opacity:1,duration:.45},11.0)
+      .to('#edge',{autoAlpha:0,duration:.7},11.1)
+      .to('#knob',{opacity:1,duration:.3},11.2)
+      .to('#knob',{left:'56%',background:'#ffd23f',duration:.5,ease:P},11.6)
+      .to('#b5 .deco',{background:'rgba(35,48,232,1)',duration:.5},11.6);
+    hout('.s4',12.8);
+
+    // 5 · ship 13.2–16.1
+    hin('.s5',13.3);
+    tl.set('#cursor',{opacity:1},13.45)
+      .fromTo('#cursor',{x:function(){return reel.clientWidth+60;},y:function(){return reel.clientHeight+60;}},
+        {x:function(){return ptBtn().x;},y:function(){return ptBtn().y;},duration:1.1,ease:'power2.inOut',invalidateOnRefresh:true},13.5)
+      .to('#cursor',{scale:.82,duration:.12,yoyo:true,repeat:1},14.75)
+      .to('#idea',{scale:.95,duration:.12,yoyo:true,repeat:1},14.75);
+    tl.set('#burst i',{autoAlpha:0},0);
+    document.querySelectorAll('#burst i').forEach(function(d,i){
+      var ang=i/8*Math.PI*2;
+      tl.fromTo(d,{x:function(){return ptBtn().x;},y:function(){return ptBtn().y;},autoAlpha:1,scale:1,immediateRender:false},
+        {x:function(){return ptBtn().x+Math.cos(ang)*150;},y:function(){return ptBtn().y+Math.sin(ang)*150;},autoAlpha:0,scale:.3,duration:.8,ease:'power3.out',invalidateOnRefresh:true},14.85);
+    });
+    tl.to('#cursor',{autoAlpha:0,duration:.35},15.3)
+      .set('#flood',{opacity:1},15.45)
+      .fromTo('#flood',{clipPath:function(){var p=ptBtn(),r=reel.getBoundingClientRect();return 'inset('+(p.y-p.h/2)+'px '+(r.width-p.x-p.w/2)+'px '+(r.height-p.y-p.h/2)+'px '+(p.x-p.w/2)+'px round 40px)';}},
+        {clipPath:'inset(0px 0px 0px 0px round 0px)',duration:1.0,ease:'expo.inOut',invalidateOnRefresh:true},15.45)
+      .fromTo('.s5 .w>span',{yPercent:0,y:0},{yPercent:-110,y:0,duration:.5,ease:'power2.in',stagger:.03,immediateRender:false},15.35)
+      .to('.s5 .kicker',{autoAlpha:0,duration:.3},15.35);
+
+    // 6 · the designer 16.3–18.5
+    tl.set('#board',{autoAlpha:0},16.3).set('.s5',{autoAlpha:0},16.3)
+      .set('#end',{autoAlpha:1},16.3)
+      .fromTo('#endk',{autoAlpha:0,x:-20},{autoAlpha:1,x:0,duration:.6,ease:E},16.3)
+      .fromTo('#end .name .w>span',{yPercent:110,y:0},{yPercent:0,y:0,duration:1.0,ease:E,stagger:.14,immediateRender:false},16.4)
+      .fromTo('#endrole',{autoAlpha:0,y:30},{autoAlpha:1,y:0,duration:.7,ease:E},17.0)
+      .fromTo('#endfoot',{autoAlpha:0},{autoAlpha:1,duration:.7},17.4)
+      .to({},{duration:.01},18.49);
+
+    // state-driven text (reversible while scrubbing)
+    var cur='';
+    function state(){
+      var t=tl.time(),st=t<3.6?0:t<6.8?1:t<10.7?2:t<14.85?3:4;
+      var file=st>=3?(st===4?'product':'product.fig'):'untitled';
+      var key=st+'|'+L+'|'+(t>=11?1:0)+'|'+(t<2.9?1:0);
+      if(key===cur)return;cur=key;
+      $('#file').textContent=file;
+      $('#status').textContent=K['st'+st][L];
+      $('#ideaTxt').textContent=t>=11?K.ship[L]:K.idea[L];
+      $('#idea').classList.toggle('blink',t<2.9);
+    }
+    tl.progress(1);tl.progress(0);state();
+
+    ScrollTrigger.create({animation:tl,trigger:reel,start:'top top',end:'+=520%',scrub:.8,pin:true,anticipatePin:1,invalidateOnRefresh:true});
+    // grid drifts at its own pace while the reel plays
+    gsap.fromTo('#gridbg',{y:0},{y:-96,ease:'none',scrollTrigger:{trigger:reel,start:'top top',end:'+=520%',scrub:true}});
+  }
+
+  function buildParallax(){
+    document.querySelectorAll('[data-speed]').forEach(function(el){
+      var s=parseFloat(el.dataset.speed)||0;
+      gsap.fromTo(el,{y:function(){return s*90;}},{y:function(){return -s*90;},ease:'none',invalidateOnRefresh:true,
+        scrollTrigger:{trigger:el,start:'top bottom',end:'bottom top',scrub:true}});
+    });
+    document.querySelectorAll('.grid:not(.reel)').forEach(function(sec){
+      gsap.fromTo(sec,{backgroundPositionY:'0px'},{backgroundPositionY:'-240px',ease:'none',scrollTrigger:{trigger:sec,start:'top bottom',end:'bottom top',scrub:true}});
+    });
+  }
+
+  function buildAll(){
+    if(reduce||!window.gsap||!window.ScrollTrigger){
+      $('#reel').classList.add('static');
+      $('#end').style.cssText='';
+      document.querySelectorAll('#end *').forEach(function(e){e.style.visibility='visible';e.style.opacity=1;});
+      document.querySelectorAll('#end .name .w>span').forEach(function(e){e.style.transform='none';});
+      return;
+    }
+    gsap.registerPlugin(ScrollTrigger);
+    ctx=gsap.context(function(){buildReel();buildParallax();});
+    ScrollTrigger.refresh();
+  }
+
+  function setLang(i){
+    var y=scrollY;
+    if(ctx){ctx.revert();ctx=null;}
+    L=i;try{localStorage.setItem('lang',LANGS[i]);}catch(e){}
+    bind();buildAll();scrollTo(0,y);
+  }
+
+  document.querySelectorAll('.langs button').forEach(function(b){b.addEventListener('click',function(){setLang(LANGS.indexOf(b.dataset.l));});});
   document.getElementById('y').textContent=new Date().getFullYear();
 
-  // masked word-rise on the hero headline (each language span splits once)
-  document.getElementById('h1').querySelectorAll('.es,.en').forEach(function(sp){
-    var i=0,out=[];
-    sp.childNodes.forEach(function(n){
-      var em=n.nodeName==='EM';
-      n.textContent.trim().split(/\s+/).filter(Boolean).forEach(function(w){
-        out.push('<span class="w"><span style="--i:'+(i++)+'">'+(em?'<em>'+w+'</em>':w)+'</span></span>');
-      });
-    });
-    sp.innerHTML=out.join('');
-  });
+  // header version counter: v0.0 at the top, v1.0 at the bottom
+  var ver=$('#ver');
+  function upd(){var m=document.documentElement.scrollHeight-innerHeight;var p=m>0?Math.min(1,Math.max(0,scrollY/m)):0;ver.textContent='v'+p.toFixed(1);}
+  addEventListener('scroll',upd,{passive:true});addEventListener('resize',upd);
 
-  // version counter follows scroll: v0.0 at top, v1.0 at the end
-  var ver=document.getElementById('ver');
-  function upd(){
-    var max=document.documentElement.scrollHeight-innerHeight;
-    var p=max>0?Math.min(1,Math.max(0,scrollY/max)):0;
-    ver.textContent='v'+p.toFixed(1);
-  }
-  addEventListener('scroll',upd,{passive:true});addEventListener('resize',upd);upd();
+  bind();
+  // wait for fonts so measured sizes are right, then build
+  (document.fonts&&document.fonts.ready?document.fonts.ready:Promise.resolve()).then(function(){buildAll();upd();});
 })();
 </script>
 </body>
