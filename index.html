@@ -7,20 +7,20 @@
 <meta name="description" content="Diseñador holístico en Bogotá: del descubrimiento al producto funcionando en producción, con IA en cada fase.">
 <meta property="og:title" content="Juan David Gómez · Diseñador holístico">
 <meta property="og:description" content="Del descubrimiento al producto en producción, acelerando cada fase con IA.">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='14' fill='%23181B34'/%3E%3Ccircle cx='16' cy='16' r='6' fill='%23FFD23F'/%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='14' fill='%231F1F1F'/%3E%3Ccircle cx='16' cy='16' r='6' fill='%23FBB833'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
 <style>
 :root{
-  --ink:#181B34;
-  --paper:#ECEEF3;
-  --paper-2:#E1E4EC;
-  --lime:#9BE15D;
-  --pink:#FF8FC7;
-  --sun:#FFD23F;
-  --red:#FF5442;
-  --display:'Bricolage Grotesque',system-ui,sans-serif;
+  --ink:#1F1F1F;
+  --paper:#D9D9D9;
+  --paper-2:#CECECE;
+  --lime:#027B49;
+  --pink:#F19EC8;
+  --sun:#FBB833;
+  --red:#FA4D43;
+  --display:'Poppins',system-ui,sans-serif;
   --text:'Newsreader',Georgia,serif;
   --gutter:clamp(20px,4vw,56px);
 }
@@ -34,6 +34,7 @@ a{color:inherit}
 /* language switch */
 [data-lang="es"] .en,[data-lang="en"] .es{display:none!important}
 
+h1,h2,h3{font-family:var(--display);text-transform:uppercase;font-weight:600}
 /* nav */
 .nav{position:fixed;inset:0 0 auto 0;z-index:50;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:14px var(--gutter);background:color-mix(in srgb,var(--paper) 88%,transparent);backdrop-filter:blur(8px);font-family:var(--display);font-weight:500;font-size:15px}
 .brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:800}
@@ -47,12 +48,12 @@ a{color:inherit}
 
 /* hero */
 .hero{min-height:100svh;padding:clamp(110px,16vh,170px) var(--gutter) 40px;display:flex;flex-direction:column;justify-content:space-between;gap:48px}
-h1{font-family:var(--display);font-weight:800;font-size:clamp(46px,9.4vw,168px);line-height:.92;letter-spacing:-.035em;max-width:14ch}
+h1{font-size:clamp(38px,7vw,124px);line-height:1;letter-spacing:-.025em;max-width:16ch}
 .hero-foot{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:var(--gutter);align-items:end}
 .hero-foot p{max-width:34em}
 .ribbon{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;font-family:var(--display);font-weight:800;font-size:clamp(14px,1.5vw,22px)}
 .ribbon>span{display:block;padding:14px 14px 12px;transform-origin:left;animation:fill 1.1s cubic-bezier(.2,.8,.2,1) both}
-.ribbon>span:nth-child(1){background:var(--lime)}
+.ribbon>span:nth-child(1){background:var(--lime);color:#fff}
 .ribbon>span:nth-child(2){background:var(--pink);animation-delay:.12s}
 .ribbon>span:nth-child(3){background:var(--sun);animation-delay:.24s}
 .ribbon>span:nth-child(4){background:var(--red);animation-delay:.36s}
@@ -63,7 +64,7 @@ h1{font-family:var(--display);font-weight:800;font-size:clamp(46px,9.4vw,168px);
 /* shared */
 section{position:relative}
 .wrap{padding:clamp(72px,12vw,160px) var(--gutter)}
-h2{font-family:var(--display);font-weight:800;font-size:clamp(36px,6vw,104px);line-height:.96;letter-spacing:-.03em;max-width:16ch}
+h2{font-size:clamp(30px,4.6vw,80px);line-height:1.02;letter-spacing:-.02em;max-width:18ch}
 .lead{max-width:36em;margin-top:28px;font-size:clamp(20px,1.7vw,26px)}
 .label{font-family:var(--display);font-weight:500;font-size:15px;margin-bottom:22px;display:flex;align-items:center;gap:10px}
 .label::before{content:"";width:12px;height:12px;border-radius:50%;background:currentColor}
@@ -72,7 +73,7 @@ h2{font-family:var(--display);font-weight:800;font-size:clamp(36px,6vw,104px);li
 .pillars{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:clamp(48px,7vw,96px);border-top:2px solid var(--ink)}
 .pillar{padding:22px 22px 0 0}
 .pillar+.pillar{padding-left:22px;border-left:1px solid color-mix(in srgb,var(--ink) 25%,transparent)}
-.pillar h3{font-family:var(--display);font-weight:800;font-size:clamp(20px,1.7vw,26px);line-height:1.1;letter-spacing:-.01em;margin-bottom:10px}
+.pillar h3{font-size:clamp(16px,1.3vw,20px);line-height:1.2;letter-spacing:-.005em;margin-bottom:10px}
 .pillar p{font-size:18px}
 @media(max-width:900px){.pillars{grid-template-columns:1fr 1fr}.pillar:nth-child(3){padding-left:0;border-left:0}.pillar{padding-bottom:28px}}
 @media(max-width:520px){.pillars{grid-template-columns:1fr}.pillar,.pillar+.pillar{padding-left:0;border-left:0}}
@@ -80,19 +81,31 @@ h2{font-family:var(--display);font-weight:800;font-size:clamp(36px,6vw,104px);li
 /* process: stacked sticky panels */
 .process-intro{padding-bottom:0}
 .panel{position:sticky;top:0;min-height:100svh;display:flex;align-items:center;padding:96px var(--gutter) 56px;border-top:2px solid var(--ink)}
-.panel.p1{background:var(--lime)}
+.panel.p1{background:var(--lime);color:#fff}
+.panel.p1 .ai{border-color:#fff}
 .panel.p2{background:var(--pink)}
 .panel.p3{background:var(--sun)}
 .panel.p4{background:var(--red)}
 .panel-grid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:clamp(28px,5vw,88px);width:100%;align-items:end}
 .step{font-family:var(--display);font-weight:500;font-size:16px;margin-bottom:12px}
-.panel h3{font-family:var(--display);font-weight:800;font-size:clamp(56px,11vw,190px);line-height:.88;letter-spacing:-.04em}
+.panel h3{font-size:clamp(44px,8.6vw,150px);line-height:.95;letter-spacing:-.03em}
 .panel .what{font-size:clamp(20px,1.6vw,25px);max-width:30em}
 .ai{margin-top:26px;padding-top:18px;border-top:2px solid var(--ink)}
 .ai b{font-family:var(--display);font-weight:800;display:block;margin-bottom:6px;font-size:17px}
 .ai p{font-size:18px;max-width:32em}
 .proof{margin-top:16px;font-family:var(--display);font-weight:800;font-size:clamp(17px,1.5vw,22px)}
-@media(max-width:860px){.panel{align-items:flex-start;padding-top:84px}.panel-grid{grid-template-columns:1fr;gap:20px}.panel h3{font-size:clamp(52px,17vw,100px)}}
+@media(max-width:860px){.panel{align-items:flex-start;padding-top:84px}.panel-grid{grid-template-columns:1fr;gap:20px}.panel h3{font-size:clamp(40px,13vw,84px)}}
+
+/* cases */
+.cases{margin-top:clamp(40px,6vw,80px);border-top:2px solid var(--ink)}
+.case{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.3fr);gap:var(--gutter);padding:clamp(24px,3vw,44px) 0;border-bottom:1px solid color-mix(in srgb,var(--ink) 30%,transparent)}
+.case h3{font-size:clamp(20px,2.4vw,38px);line-height:1.1;letter-spacing:-.015em}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.tag{font-family:var(--display);font-weight:500;font-size:14px;padding:4px 12px;border-radius:99px;color:var(--ink)}
+.tag.g{background:var(--lime);color:#fff}.tag.k{background:var(--pink)}.tag.y{background:var(--sun)}.tag.r{background:var(--red)}
+.case p+p{margin-top:14px}
+.case .res{font-family:var(--display);font-weight:600;font-size:clamp(16px,1.4vw,20px)}
+@media(max-width:760px){.case{grid-template-columns:1fr;gap:16px}}
 
 /* impact */
 .impact{background:var(--ink);color:var(--paper)}
@@ -109,7 +122,7 @@ h2{font-family:var(--display);font-weight:800;font-size:clamp(36px,6vw,104px);li
 /* experience */
 .roles{margin-top:clamp(40px,6vw,80px);border-top:2px solid var(--ink)}
 .role{display:grid;grid-template-columns:minmax(0,.7fr) minmax(0,1.6fr);gap:var(--gutter);padding:22px 0;border-bottom:1px solid color-mix(in srgb,var(--ink) 25%,transparent)}
-.role h3{font-family:var(--display);font-weight:800;font-size:clamp(20px,1.8vw,28px);line-height:1.1;letter-spacing:-.01em}
+.role h3{font-size:clamp(16px,1.4vw,22px);line-height:1.2;letter-spacing:0}
 .role .when{font-family:var(--display);font-weight:500;font-size:15px;margin-top:4px}
 .role p{max-width:38em}
 @media(max-width:700px){.role{grid-template-columns:1fr;gap:6px}}
@@ -139,6 +152,7 @@ footer{padding:22px var(--gutter);display:flex;justify-content:space-between;gap
     <ul>
       <li><a href="#sobre"><span class="es">Sobre mí</span><span class="en">About</span></a></li>
       <li><a href="#proceso"><span class="es">Proceso</span><span class="en">Process</span></a></li>
+      <li><a href="#casos"><span class="es">Casos</span><span class="en">Use cases</span></a></li>
       <li><a href="#impacto"><span class="es">Impacto</span><span class="en">Impact</span></a></li>
       <li><a href="#experiencia"><span class="es">Experiencia</span><span class="en">Experience</span></a></li>
       <li><a href="#contacto"><span class="es">Contacto</span><span class="en">Contact</span></a></li>
@@ -249,6 +263,45 @@ footer{padding:22px var(--gutter);display:flex;justify-content:space-between;gap
       </div>
     </div>
   </article>
+</section>
+
+<section id="casos" aria-labelledby="casos-h">
+  <div class="wrap">
+    <p class="label"><span class="es">Casos de uso</span><span class="en">Use cases</span></p>
+    <h2 id="casos-h"><span class="es">Tres proyectos, de punta a punta.</span><span class="en">Three projects, end to end.</span></h2>
+    <div class="cases">
+      <article class="case">
+        <div>
+          <h3><span class="es">Design Engineer Process</span><span class="en">Design Engineer Process</span></h3>
+          <div class="tags"><span class="tag k"><span class="es">Diseñar</span><span class="en">Design</span></span><span class="tag y"><span class="es">Construir</span><span class="en">Build</span></span><span class="tag r"><span class="es">Lanzar</span><span class="en">Ship</span></span></div>
+        </div>
+        <div>
+          <p><span class="es">Un proceso de 9 pasos que conecta la investigación, Figma (MCP), GitHub Copilot, el Design System ABI, Azure Repos y la revisión con Pull Request, Sonar y Snyk. Lo diseñé, lo documenté y lo publiqué para que el equipo lo use.</span><span class="en">A 9-step process that connects research, Figma (MCP), GitHub Copilot, the ABI Design System, Azure Repos and review through Pull Request, Sonar and Snyk. I designed, documented and published it for the team to use.</span></p>
+          <p class="res"><span class="es">Ciclo de diseño y front: de 25 a 7 días (−72%).</span><span class="en">Design and front-end cycle: from 25 to 7 days (−72%).</span></p>
+        </div>
+      </article>
+      <article class="case">
+        <div>
+          <h3><span class="es">Agentes de historias de usuario y business case</span><span class="en">User story and business case agents</span></h3>
+          <div class="tags"><span class="tag g"><span class="es">Descubrir</span><span class="en">Discover</span></span></div>
+        </div>
+        <div>
+          <p><span class="es">Un agente de IA crea y analiza historias de usuario directamente en Azure DevOps. Otro genera business cases con métricas de riesgo, implementación y costos para evaluar la viabilidad de un proyecto.</span><span class="en">An AI agent creates and reviews user stories directly in Azure DevOps. Another generates business cases with risk, implementation and cost metrics to assess project viability.</span></p>
+          <p class="res"><span class="es">800+ historias, 90+ usuarios, ciclo de 15 a 3 días. 200+ business cases para 30 usuarios.</span><span class="en">800+ stories, 90+ users, cycle from 15 to 3 days. 200+ business cases for 30 users.</span></p>
+        </div>
+      </article>
+      <article class="case">
+        <div>
+          <h3><span class="es">Agente QA de casos de prueba</span><span class="en">QA test case agent</span></h3>
+          <div class="tags"><span class="tag r"><span class="es">Lanzar</span><span class="en">Ship</span></span></div>
+        </div>
+        <div>
+          <p><span class="es">Un agente en Copilot Studio y Power Automate, con Playwright, que genera casos de prueba a partir de las historias de usuario de Azure DevOps, incluidos escenarios multipaís.</span><span class="en">An agent built with Copilot Studio and Power Automate, plus Playwright, that generates test cases from Azure DevOps user stories, including multi-country scenarios.</span></p>
+          <p class="res"><span class="es">Casos de prueba al instante, desde la misma historia que originó el trabajo.</span><span class="en">Test cases on demand, straight from the story that started the work.</span></p>
+        </div>
+      </article>
+    </div>
+  </div>
 </section>
 
 <section id="impacto" class="impact" aria-labelledby="impacto-h">
